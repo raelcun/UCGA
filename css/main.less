@@ -1,0 +1,406 @@
+@c-navgradtop: hsl(6, 54%, 18%);
+@c-navgradbottom: hsl(10, 35%, 14%);
+@c-navborder: hsl(6, 36%, 36%);
+@c-navfont: #C98E61;
+@c-nav-toggle: hsl(7, 74%, 26%);
+@navbar-height: 35px;
+@c-social-bg: fade(black, 50%);
+
+@c-content-bg: hsl(0, 0%, 10%);
+@c-heading-gradtop: hsl(6, 54%, 18%);
+@c-heading-gradbottom: hsl(10, 35%, 14%);
+@c-link: hsl(204, 74%, 40%);
+@c-link-high: hsl(204, 74%, 45%);
+
+@font1: 'Oswald', Helvetica, Arial, sans-serif;
+@font2: Arial, Helvetica, sans-serif;
+
+.gradient-vertical(@color-top, @color-bottom) {
+	background-color: @color-top;
+    background-image: -webkit-linear-gradient(top, @color-top 0%, @color-bottom 100%);
+    background-image: -o-linear-gradient(top, @color-top 0%, @color-bottom 100%);
+    background-image: linear-gradient(to bottom, @color-top 0%, @color-bottom 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@color-top, endColorstr=@color-bottom, GradientType=0);
+    *background-color: @color-bottom;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    -webkit-transition: all;
+    -o-transition: all;
+    transition: all;
+}
+
+.transition (@prop: all, @time: 1s, @ease: linear) {
+		-webkit-transition: @prop @time @ease;
+		-moz-transition: @prop @time @ease;
+		-o-transition: @prop @time @ease;
+		-ms-transition: @prop @time @ease;
+		transition: @prop @time @ease;
+	}
+
+@media (min-width: 1200px) { // large to medium
+}
+
+@media (min-width: 768px) and (max-width: 991px) { // medium to small
+}
+
+body {
+	background: url(../img/bk3.png) no-repeat center top;
+	background-attachment: fixed !important;
+	font-family: @font2;
+
+	#logo {
+		text-align: center;
+		margin-top: 30px;
+		margin-bottom: 30px;
+
+		.logo {
+			width: 250px;
+		}
+	}
+
+	a,
+	button {
+		outline: none !important;
+		color: @c-link;
+	}
+
+	a:hover {
+		color: @c-link-high;
+		text-decoration: none;
+	}
+
+	.faded-background {
+		background-color: @c-social-bg;
+		padding-top: 12px;
+	}
+
+	.navbar {
+		min-height: 40px !important; // navbar can be less than 50 pixels if also change .nav-barnav > li > a padding
+
+		border-radius: 0px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+
+		border: none;
+		border-top: 1px solid @c-navborder;
+		border-left: 1px solid @c-navborder;
+		border-right: 1px solid @c-navborder;
+
+		margin-bottom: 0px;
+		padding-bottom: 0px;
+		padding-left: 0px;
+
+		.gradient-vertical(@c-navgradtop, @c-navgradbottom);
+
+		.container {
+			.navbar-nav {
+			 	> li > a {
+			 		color: @c-navfont;
+			 		font-size: 14px;
+			 		font-weight: bold;
+			 	}
+			}
+		}
+
+		.navbar-toggle, .navbar-toggle:focus {
+			border-color: @c-nav-toggle;
+			background-color: transparent;
+
+			&:hover {
+				background-color: @c-nav-toggle;
+			}
+		}
+	}
+
+	.menu-social-container {
+		@colorBase: @c-link;
+	  text-align: center;
+	  font-weight: 300;
+	  color: @colorBase;
+
+	  ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+	    
+			li {
+	      background-color: @c-social-bg;
+	      margin-right: -4px;
+	      height: 25px;
+				display: inline-block;
+				zoom: 1;
+				*display: inline;
+				vertical-align:  middle;
+
+				a {
+					display: block;
+					font-size: 1.4em;
+					margin-left: 5px;
+					margin-right: 5px;
+					margin-top: 3px;
+					text-decoration: none;
+
+					i {
+						color: @colorBase;
+						.transition(all, 0.2s, ease-in);
+					}
+
+					&:hover {
+						i {
+							color: darken(@colorBase, 15%);
+						}
+					}
+
+					&:focus, &:active {
+						i {
+							transition: none;
+							color: darken(@colorBase, 30%);
+						}
+					}
+				}
+			}
+	    
+	    .left {
+	      width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 0 25px 30px;
+				border-color: transparent transparent @c-social-bg transparent;
+	      background-color: transparent;
+	    }
+	    
+	    .right {
+	      width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 25px 0 0px 30px;
+				border-color: transparent transparent transparent @c-social-bg;
+	      background-color: transparent;
+	    }
+		}
+	}
+
+	#myCarousel {
+	  ~ .nav
+		{
+		  background-color: @c-content-bg;
+		  height: 100%;
+
+		  a small {
+		  	display: block;
+		  }
+
+		  > li {
+		  	width: 100%;
+
+		  	img {
+		  		margin-left: 15px;
+		  		float: left;
+		  		width: 75px;
+		  		height: 75px;
+		  	}
+
+		  	a {
+		  		padding: 15px;
+		  	}
+
+		  	a:hover {
+		  		background-color: fade(white, 5%);
+		  	}
+		  }
+		}
+	}
+
+	#content {
+		@color1: hsl(0, 100%, 35%);
+		@color2: hsl(0, 0%, 100%);
+
+		background-color: @c-content-bg;
+		padding: 15px;
+		margin: 0px;
+
+		.breadcrumbs {
+			color: @color1;
+			font-weight: bold;
+			margin-top: 10px;
+			padding-bottom: 10px;
+			border-bottom: 1px solid fade(#ccc, 15%);
+			margin-bottom: 15px;
+			font-family: @font1;
+
+			.chevron {
+				@buttonSize: 19px;
+				@fontSize: 11px;
+				backgorund-color: @c-content-bg;
+				border-radius: 3px;
+				height: @buttonSize;
+				width: @buttonSize;
+				text-align: center;
+				padding-top: (@buttonSize - @fontSize) / 2;
+				border: 1px solid hsl(4, 53%, 22%);
+
+				.fa-chevron-right {
+					font-size: @fontSize;
+				}
+			}
+
+			.color1 {
+				color: @color1;
+			}
+
+			.color2 {
+				color: @color2;
+			}
+		}
+
+		.post-container {
+			margin-bottom: 15px;
+
+			.post {
+				border-radius: 10px;
+				position: relative;
+				padding: 10px;
+				margin: 0px !important; // fix margin from row class
+				margin-bottom: 30px !important;
+				background-color: white;
+
+				.date-container {
+					background-image: url(../img/date_bg.png);
+					background-size: 100%;
+					background-repeat: no-repeat;
+					position: absolute;
+					margin-left: -19px;
+					margin-top: -19px;
+					width: 38px;
+					height: 38px;
+					text-align: center;
+					color: white;
+					font-weight: bold;
+
+					.date {
+						font-size: 14px;						
+					}
+
+					.month {
+						font-size: 8px;
+					}
+				}
+
+				.comment-blob {
+					background-image: url(../img/comment_bg.png);
+					color: white;
+					font-weight: bold;
+					float: right;
+					text-align: center;
+					line-height: 31px;
+					width: 39px;
+					height: 31px;
+				}
+
+				button {
+					font-size: 12px;
+				}
+
+				img {
+					border-radius: 10px;
+					border: 3px solid @color1;
+					height: 200px;
+					width: 200px;
+				}
+
+				.title {
+					color: @color1;
+					font-size: 14px;
+					font-weight: bold;
+					font-family: @font1;
+					margin-top: 5px;
+					margin-bottom: 5px;
+				}
+
+				.info {
+					font-size: 10px;
+					color: #ccc;
+					padding-bottom: 5px;
+					border-bottom: 1px solid #ccc;
+				}
+
+				.content {
+					margin-top: 5px;
+				}
+			}
+		}
+	}
+
+	#sidebar {
+		color: white;
+
+		.post-container {
+			margin-left: 10px;
+
+			.titlebar {
+				.gradient-vertical(@c-heading-gradtop, @c-heading-gradbottom);
+				border-radius: 8px;
+				padding: 8px;
+				border-top: 1px solid @c-navborder;
+				border-left: 1px solid @c-navborder;
+				border-right: 1px solid @c-navborder;
+
+				h3.title {
+					font-size: 14px;
+					font-family: @font1;
+					padding: 0px;
+					margin: 0px;
+				}
+			}
+
+			.post {
+				margin: 0px !important; // fix margin from row class
+				background: none;
+
+				.col-md-10 {
+				  padding-left: 10px !important;
+				}
+
+				img {
+					border-width: 2px;
+					border-radius: 0px;
+					height: 50px;
+					width: 50px;
+				}
+
+				.title {
+					color: white;
+					font-size: 11px;
+					font-weight: bold;
+					font-family: @font2;
+				}
+
+				.info {
+					border: none;
+				}
+			}
+		}
+	}
+}
+
+// Fix for column padding always being added to carousel, even when overridden
+[class*="col-"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.btn-primary {
+	@c-grad1: hsl(7, 74%, 36%);
+	@c-grad2: hsl(7, 74%, 31%);
+	@c-border-high: hsl(0, 82%, 65%);
+	@c-border: hsl(0, 82%, 45%);
+
+	border: 1px solid @c-border;
+	.gradient-vertical(@c-grad1, @c-grad2);
+
+	&:hover,
+	&:focus {
+		border: 1px solid @c-border-high;
+		.gradient-vertical(@c-grad2, @c-grad1);
+	}
+}
