@@ -1,0 +1,18 @@
+<div id="sidebar">
+  <div class="post-container">
+    <div class="titlebar">
+      <h3 class="title">POPULAR POSTS</h3>
+    </div>
+
+    <div class="post row" ng-repeat="post in posts">
+      <div class="col-md-2">
+        <img ng-src="{{ post.image_path }}">
+      </div>
+
+      <div class="col-md-10">
+        <h3 class="title">{{ post.title }}</h3>
+        <div class="info">{{ post.date_month }} {{ post.date_day }} {{ post.date_year }} - <a href="#">{{ post.commentCount }} comments</a></div>
+      </div>
+    </div>
+  </div>
+</div>

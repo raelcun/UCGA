@@ -1,0 +1,23 @@
+<div class="post-container">
+  <ul class="list-inline breadcrumbs">
+    <li class="chevron"><i class="fa fa-chevron-right"></i></li>
+    <li><span class="color1">ORIZON //</span><span class="color2"> GENERAL NEWS</span></li>
+  </ul> <!-- TODO: enable customizable breadcrumbs -->
+
+  <div class="post row" ng-repeat="post in posts">
+    <div class="col-lg-4">
+      <img ng-src="{{ post.image_path }}">
+    </div>
+    <div class="col-lg-8">
+      <a href="#"><div class="comment-blob">{{ post.commentCount }}</div></a>
+      <h3 class="title">{{ post.title }}</h3>
+      <div class="info">{{ post.date_month }} {{ post.date_day }} {{ post.date_year }}, by {{ post.author }}</div>
+      <div class="content">{{ post.content }}</div>
+      <button href="{{ post.link }}" type="button" class="btn btn-primary pull-right">Read More</button>
+    </div>
+    <div class="date-container">
+      <div class="date">{{ post.date_day }}</div>
+      <div class="month">{{ post.date_month.substr(0, 3) }}</div>
+    </div>
+  </div>
+</div>
